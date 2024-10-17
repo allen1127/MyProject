@@ -124,14 +124,14 @@ padding: 10px;
 
       var dt = new Date();
       var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=1135&QTime=20&PT=1&D='+dt.add({ days: 14 }).toString("yyyy/MM/dd");
-      if(16== dt.toString("HH")){
+      if('00'== dt.addHours(8).toString("HH")){
         if(!todo){
           todo = true;
           window.open(url);
         }
       }
       //console.log(dt.toString("HH"));
-      //console.log(url);
+      console.log(dt.addHours(8).toString("HH"));
     }, 100);
 
     // Toggle section content
