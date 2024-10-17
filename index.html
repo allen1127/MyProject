@@ -123,14 +123,15 @@ padding: 10px;
     setInterval(function () {
 
       var dt = new Date();
+      var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=1135&QTime=6&PT=1&D='+dt.add({ days: 14 }).toString("yyyy/MM/dd");
       if(16== dt.toString("HH")){
         if(!todo){
           todo = true;
-          window.open('https://stackoverflow.com/questions/30253482/boolean-variable-in-jquery');
+          //window.open(url);
         }
       }
       //console.log(dt.toString("HH"));
-      console.log(dt.add({ days: 14 }).toString("yyyy-MM-dd HH:mm:ss"));
+      console.log(url);
     }, 100);
 
     // Toggle section content
