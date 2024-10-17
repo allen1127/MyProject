@@ -116,13 +116,12 @@ padding: 10px;
                 scrollTop: target.offset().top
             }, 1000);
         }
-
-        setInterval(function () {
-          var dt = new Date();
-          console.log(dt.getHours());
-        }, 1000);
-
     });
+
+    setInterval(function () {
+      var dt = new Date();
+      console.log(dt.getHours());
+    }, 1000);
 
     // Toggle section content
     $('section').click(function() {
