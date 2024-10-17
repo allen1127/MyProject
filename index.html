@@ -119,7 +119,15 @@ padding: 10px;
     });
 
     setInterval(function () {
+      var todo = false;
       var dt = new Date();
+      if(14== dt.getHours()){
+        if(!todo){
+          todo = true;
+          window.open(this.href);
+        }
+      }
+
       console.log(dt.getHours());
     }, 1000);
 
