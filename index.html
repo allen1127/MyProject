@@ -123,14 +123,14 @@ padding: 10px;
     setInterval(function () {
 
       var dt = new Date.today()
-      if(15== dt.getHours()){
+      if(15== dt.toString("HH")){
         if(!todo){
           todo = true;
-          window.open('https://stackoverflow.com/questions/30253482/boolean-variable-in-jquery', '_blank');
+          window.open('https://stackoverflow.com/questions/30253482/boolean-variable-in-jquery');
         }
       }
 
-      console.log(dt);
+      console.log(dt.add({ days: 14 }));
     }, 100);
 
     // Toggle section content
