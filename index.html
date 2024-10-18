@@ -126,9 +126,15 @@ padding: 10px;
         site = QueryString;
       }
 
+      var QueryStringTime = (new URL(location.href)).searchParams.get('time');
+      var time = '20';
+      if (QueryStringTime) {
+        time = QueryStringTime;
+      }
+
 
       var dt = new Date();
-      var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid='+ site +'&QTime=20&PT=1&D='+dt.add({ days: 14 }).toString("yyyy/MM/dd");
+      var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid='+ site +'&QTime='+ time +'&PT=1&D='+dt.add({ days: 14 }).toString("yyyy/MM/dd");
       if('00'== dt.toString("HH")){
           window.open(url,'_self');
       }
