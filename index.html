@@ -128,13 +128,13 @@ padding: 10px;
 
 
       var dt = new Date();
-      var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=1135&QTime=20&PT=1&D='+dt.add({ days: 14 }).toString("yyyy/MM/dd");
+      var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid='+ site +'&QTime=20&PT=1&D='+dt.add({ days: 14 }).toString("yyyy/MM/dd");
       if('00'== dt.toString("HH")){
-          //window.open(url,'_self');
+          window.open(url,'_self');
       }
       console.log(site);
       //console.log(dt.addHours(8).toString("HH"));
-    }, 100);
+    }, 10);
 
     // Toggle section content
     $('section').click(function() {
