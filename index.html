@@ -131,6 +131,11 @@ padding: 10px;
       time = QueryStringTime;
     }
 
+    var QueryStringSec = (new URL(location.href)).searchParams.get('sec');
+    var sec = 10;
+    if (QueryStringSec) {
+      sec = QueryStringSec;
+    }
 
     setInterval(function () {
       var dt = new Date();
@@ -140,7 +145,7 @@ padding: 10px;
       }
       //console.log(url);
       //console.log(dt.addHours(8).toString("HH"));
-    }, 10);
+    }, sec);
 
     // Toggle section content
     $('section').click(function() {
