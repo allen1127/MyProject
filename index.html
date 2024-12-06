@@ -146,7 +146,7 @@ padding: 10px;
     var todo = false;
     var interval = setInterval(function () {
       var dt = new Date();
-      if('00'!= dt.toString("HH")){
+      if('00'== dt.toString("HH")){
         if (!todo) {
             todo = true;
             var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
