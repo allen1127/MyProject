@@ -146,10 +146,10 @@ padding: 10px;
     var todo = false;
     var interval = setInterval(function () {
       var dt = new Date();
-      if('00'== dt.toString("HH")){
+      if('00'!= dt.toString("HH")){
         if (!todo) {
             todo = true;
-            date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
+            var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
             var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=' + site + '&QTime=' + time + '&PT=1&D=' + date;
 
             if('b'!= mode){
