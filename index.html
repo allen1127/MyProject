@@ -157,7 +157,7 @@ padding: 10px;
       {
         if (-1 < eval(sec))
         {
-          console.log(eval(sec) + ':' + eval(dt.toString("ss")));
+          console.log(dt.toString("HH") +':'+eval(sec) + ':' + eval(dt.toString("ss")));
           if ('06' == dt.toString("HH") && eval(sec)< eval(dt.toString("ss"))) {
             todo = true;
             var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
