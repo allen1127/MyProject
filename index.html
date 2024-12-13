@@ -157,7 +157,6 @@ padding: 10px;
       {
         if (-1 < eval(sec))
         {
-          console.log(dt.toString("mm"));
           if ('59' == dt.toString("mm") && eval(sec)< eval(dt.toString("ss"))) {
             todo = true;
             var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
