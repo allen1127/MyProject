@@ -155,10 +155,10 @@ padding: 10px;
 
       if (!todo)
       {
-        console.log(dt.toString("mm")+';'+ eval(sec)+';'+ eval(dt.toString("ss")));
-        if (-1 < eval(sec))
+        console.log(dt.toString("mm")+';'+ parseInt(sec)+';'+ parseInt(dt.toString("ss")));
+        if (-1 < parseInt(sec))
         {
-          if ('52' == dt.toString("mm") && eval(sec)< eval(dt.toString("ss"))) {
+          if ('52' == dt.toString("mm") && parseInt(sec)< parseInt(dt.toString("ss"))) {
             console.log('in');
             todo = true;
             var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
