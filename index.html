@@ -155,11 +155,9 @@ padding: 10px;
 
       if (!todo)
       {
-        console.log(dt.toString("mm")+';'+ parseInt(sec)+';'+ parseInt(dt.toString("ss")));
-        if (-1 < parseInt(sec))
+        if (-1 < eval(sec))
         {
-          if (parseInt(sec)< parseInt(dt.toString("ss"))) {
-            console.log('in');
+          if (eval(sec)< eval(dt.toString("ss"))) {
             todo = true;
             var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
             var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=' + site + '&QTime=' + time + '&PT=1&D=' + date;
