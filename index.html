@@ -157,17 +157,19 @@ padding: 10px;
       {
         if (-1 < eval(sec))
         {
-          if (eval(sec)< eval(dt.toString("ss"))) {
-            todo = true;
-            var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
-            var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=' + site + '&QTime=' + time + '&PT=1&D=' + date;
+          if('18' == dt.toString("mm")){
+            if (eval(sec) < eval(dt.toString("ss"))) {
+              todo = true;
+              var date = dt.add({ days: 13 }).toString("yyyy/MM/dd");
+              var url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=' + site + '&QTime=' + time + '&PT=1&D=' + date;
 
-            if ('b' != mode) {
-              url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=2&PT=1&D=' + date + '&D2=' + mode;
+              if ('b' != mode) {
+                url = 'https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=2&PT=1&D=' + date + '&D2=' + mode;
+              }
+              window.open(url, '_self');
+              console.log(todo);
+              clearInterval(interval);
             }
-            window.open(url, '_self');
-            console.log(todo);
-            clearInterval(interval);
           }
         } else {
           if ('00' == dt.toString("HH")) {
