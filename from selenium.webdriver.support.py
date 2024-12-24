@@ -25,13 +25,13 @@ time.sleep(2)
 
 def timer():
     datetimeNow = datetime.now() 
-    if "18"==datetimeNow.strftime('%H'):  
+    if "00"==datetimeNow.strftime('%H'):  
         t.cancel()  
-        booking("1",9)
-        booking("1",15)
+        booking("3",9)
+        booking("3",15)
         
-    print("hour")
-    os.system("pause")
+    # print("hour")
+    # os.system("pause")
 t = Timer(0.5, timer)
 t.start()
 
@@ -43,7 +43,6 @@ def booking(slot,bookingHour):
     # WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"ContentPlaceHolder1_Date_Step2_lab\"]/select")))
     
     for i in range(bookingHour, bookingHour+5):
-
         l =driver.find_element(by=By.XPATH, value="//*[@id=\"ContentPlaceHolder1_Step2_data\"]/table/tbody/tr["+str(i)+"]/td[3]/img")
         print(i)
         if l.get_attribute('src') == "https://scr.cyc.org.tw/img/place01.png":
@@ -66,4 +65,4 @@ def booking(slot,bookingHour):
                 break
 
 print("hour")
-os.system("pause")
+# os.system("pause")
