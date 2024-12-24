@@ -8,6 +8,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from datetime import datetime, timedelta
+from threading import Timer
 import os
 # from selenium.webdriver.remote.webelement import WebElement
 # import selenium.webdriver.remote.webelement;
@@ -55,18 +57,33 @@ driver.find_element(By.ID, "login_but").click()
 time.sleep(3)
 
 
-driver.get("https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=2&PT=1&D=2025/01/02&D2=1")
+currentDateAndTime = datetime.now() 
+currentDateDay = datetime.now() + timedelta(days=13)
 
+timeHH = currentDateAndTime.strftime('%H')
+
+timeDD = currentDateAndTime.strftime('%d')
+
+# if "00"==timeHH:
+driver.get("https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=2&PT=1&D="+currentDateDay.strftime('%Y/%m/%d')+"&D2=1")
+
+# print(currentDateDay.strftime('%Y/%m/%d'))
+
+# os.system("pause")
 
 l =driver.find_element(by=By.XPATH, value="//*[@id=\"ContentPlaceHolder1_Step2_data\"]/table/tbody/tr[4]/td[3]/img")
-test =l.get_attribute('src')
+test =l.get_attribute('onclick')
+
+# t =driver.find_element_by_xpath("//*[@id=\"ContentPlaceHolder1_Step2_data\"]/table/tbody/tr[4]/td[3]/img").click()
+
 print(test)
+os.system("pause")
 l.click()
 
 try:
     WebDriverWait(driver, 3).until(EC.alert_is_present(),
-                                   'Timed out waiting for PA creation ' +
-                                   'confirmation popup to appear.')
+                                'Timed out waiting for PA creation ' +
+                                'confirmation popup to appear.')
 
     alert = driver.switch_to.alert
     alert.accept()
@@ -82,7 +99,5 @@ os.system("pause")
 
 # driver.find_element(By.ID, "But_MemberApply").click()
 
-
-os.system("pause")
 
 #But_MemberApply
