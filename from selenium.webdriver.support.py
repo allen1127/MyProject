@@ -24,14 +24,15 @@ driver.find_element(By.ID, "login_but").click()
 time.sleep(2)
 
 def timer():
+    print("1")
     datetimeNow = datetime.now() 
     if "00"==datetimeNow.strftime('%H'):  
         t.cancel()  
         booking("3",9)
         booking("3",15)
-        
-    # print("hour")
-    # os.system("pause")
+    else:
+        t = Timer(0.5, timer)
+        t.start()
 t = Timer(0.5, timer)
 t.start()
 
@@ -40,11 +41,10 @@ def booking(slot,bookingHour):
     bookingday = datetime.now() + timedelta(days=13)
     driver.get("https://scr.cyc.org.tw/tp10.aspx?module=net_booking&files=booking_place&StepFlag=2&PT=1&D="+bookingday.strftime('%Y/%m/%d')+"&D2="+slot)
     timeout = 30
-    # WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"ContentPlaceHolder1_Date_Step2_lab\"]/select")))
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"ContentPlaceHolder1_Date_Step2_lab\"]/select")))
     
     for i in range(bookingHour, bookingHour+5):
         l =driver.find_element(by=By.XPATH, value="//*[@id=\"ContentPlaceHolder1_Step2_data\"]/table/tbody/tr["+str(i)+"]/td[3]/img")
-        print(i)
         if l.get_attribute('src') == "https://scr.cyc.org.tw/img/place01.png":
             l.click()
             try:
@@ -65,4 +65,4 @@ def booking(slot,bookingHour):
                 break
 
 print("hour")
-# os.system("pause")
+os.system("pause")
