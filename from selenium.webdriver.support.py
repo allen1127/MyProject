@@ -46,6 +46,7 @@ def booking(slot,bookingHour):
     for i in range(bookingHour, bookingHour+5):
         l =driver.find_element(by=By.XPATH, value="//*[@id=\"ContentPlaceHolder1_Step2_data\"]/table/tbody/tr["+str(i)+"]/td[3]/img")
         if l.get_attribute('src') == "https://scr.cyc.org.tw/img/place01.png":
+            # driver.execute_script("window.open('https://www.example.com')")
             l.click()
             try:
                 WebDriverWait(driver, 3).until(EC.alert_is_present(),
@@ -58,6 +59,8 @@ def booking(slot,bookingHour):
             except TimeoutException:
                 print("no alert")
                 
+
+            WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"ContentPlaceHolder1_Step3Info_lab\"]/span[1]")))
             result =driver.find_element(by=By.XPATH, value="//*[@id=\"ContentPlaceHolder1_Step3Info_lab\"]/span[1]")
             print(result.text)
             
