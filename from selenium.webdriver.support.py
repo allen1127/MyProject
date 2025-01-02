@@ -27,7 +27,7 @@ time.sleep(2)
 def timer():
     print("1")
     datetimeNow = datetime.now() 
-    if "09"==datetimeNow.strftime('%H'):   
+    if "00"==datetimeNow.strftime('%H'):   
         booking(slot,bookingHour1)
         booking(slot,bookingHour2)
     else:
